@@ -1,5 +1,3 @@
-import CartWidget from "./CardWidget";
-import LogoSole from "./LogoSole";
 import Navbar from "./Navbar"
 
 const Header = () => {

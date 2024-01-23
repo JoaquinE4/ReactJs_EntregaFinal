@@ -1,11 +1,10 @@
 import { useState } from "react";
 import ItemCount from "./ItemCount";
-import {arrayProductos} from "./JSON/productos.json"
+import arrayProductos from "./JSON/productos.json"
 import { useEffect } from "react";
-import Item from "./Item";
 import ItemList from "./ItemList";
 
-const ItemListContainer = ({ greeting }) => {
+const ItemListContainer = () => {
     const[items, setItems] = useState([]);
 
     useEffect(()=>{
@@ -15,21 +14,16 @@ const ItemListContainer = ({ greeting }) => {
             resolve(arrayProductos);
             }, 2000);
         })
-        promesa.them(data => {
-            setItems(arrayProductos)
+        promesa.then(data => {
+            setItems(data)
         })
     }, []);
 
     return (
         <div>
-
-        <div className="alert alert-info container w-50 p-3" role="alert">
-            <p className="my-2">{greeting}</p>
-
-
-            <ItemCount stock={10}/>
-        </div>
             <ItemList items={items}/>
+            <ItemCount stock={10}/>
+    
         </div>
     )
 }
