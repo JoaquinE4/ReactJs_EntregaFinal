@@ -1,21 +1,92 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  max-width: auto;
+  margin: 0px;
+  padding: 0px;
   text-align: center;
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+}
+
+.bg-indigo{
+  background-color: hsla(263, 69%, 65%, 0.63);
+}
+
+.custom-button {
+  border-radius: 20px;
+  z-index: 1;
+  
+  position: relative;
+  
+  font-size: 17px;
+  
+  transition: all 1.5ms;
+  overflow: hidden;
+}
+
+.custom-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color:  hsla(263, 69%, 65%, 0.63);
+  z-index: -1;
+  transition: all 500ms;
+}
+
+.fondo-100{
+
+  height: 200px;
+  background-color:#d6d0e2;
+}
+
+.footer{
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  font-size:18px;
+  align-items: center;
+  height: 100px;
+  background-color:#d6d0e2;
+}
+.card-client {
+  background-color: rgba(238, 245, 245, 0.671);
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.7s ease;
+}
+.card-client:hover{
+  background-color: rgba(255, 255, 255, 0.397);
+
+  transform: scale(1.035);
+  box-shadow:  0px 0px 30px .5px  hsla(263, 69%, 65%, 0.144);
+}
+.img-client{
+  transition: all 1s ease;
+}
+.img-client:hover {
+  transform:scale(1.05);
+}
+ 
+
+.custom-button:hover::before {
+  
+  width: 100%;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
+  
+ 
   will-change: filter;
-  transition: filter 300ms;
+  transition: filter 560ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em #bf8bcaaa);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em #f661fbaa);
 }
 
 @keyframes logo-spin {
@@ -34,9 +105,6 @@
 }
 
 .card {
-  padding: 2em;
+  padding: 1rem;
 }
 
-.read-the-docs {
-  color: #888;
-}

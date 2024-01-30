@@ -1,12 +1,11 @@
-import { useState } from "react";
 import Item from "./Item";
 
 const ItemList = ({items}) =>{
-    const [productos, setProductos] = useState(items)
+    
 
     return(
 
-        <div className="alert alert-info container " >
+        <div className="row  d-flex gap-5 justify-content-center " >
             
         {items.map(item =>(
             <Item key={item.id} item={item}/>
