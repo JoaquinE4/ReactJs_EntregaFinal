@@ -11,8 +11,8 @@ const Cart = () => {
             <div className="container vh">
                 <div className="row">
                     <div className="col">
-                        <h1>Vaya a comprar, tío</h1>
-                        <Link to={"/"}>Página Principal</Link>
+                        <h2>Su carrito se encuentra vaico</h2>
+                        <Link className='btn btnS' to={"/tienda"}>Vuelva a la Tienda</Link>
                     </div>
                 </div>
             </div>
