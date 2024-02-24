@@ -6,9 +6,7 @@ const PaginaPrincipal = () => {
         <>
             <Banner />
             <Mensaje />
-
         </>
     )
 }
-
 export default PaginaPrincipal;

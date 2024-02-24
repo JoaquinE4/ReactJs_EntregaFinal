@@ -1,55 +1,64 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
-const ItemCount = ({stock}) => {
+
+export const Terminar = () => {
+    return (
+        <Link to={"/cart"} className="btn btnS" >Finalizar Compra</Link>
+    )
+}
+
+const ItemCount = ({ stock, onAdd }) => {
     const [counter, setCounter] = useState(1)
     const [itemStock, setItemStock] = useState(stock)
+    const [visible, setVisible] = useState(false)
 
-        const incrementar = () => {
-            if(counter < itemStock){
-                setCounter(counter + 1)
-            }
+    const incrementar = () => {
+        if (counter < itemStock) {
+            setCounter(counter + 1)
         }
-        const decrementar = ()=> {
-            if (counter > 1){
-                setCounter(counter - 1);
-            }
+    }
+    const decrementar = () => {
+        if (counter > 1) {
+            setCounter(counter - 1);
         }
+    }
 
-        const onAdd = () =>{
-            if (counter <= itemStock){
-                setItemStock(itemStock - counter);
-                setCounter(1);
-                console.log("agregaste " + counter + " Productos al carrito " + (itemStock - counter) + " productos disponibles ");
-
-            }
+    const itemAdd = () => {
+        if (counter <= itemStock) {
+            setItemStock(itemStock - counter);
+            onAdd(counter)
+            setCounter(1);
+            setVisible(true)
         }
+    }
 
-        useEffect(()=>{
+    useEffect(() => {
 
         setItemStock(stock)
 
-        },[stock])
-        
-    return(
+    }, [stock])
+
+    return (
 
         <div className=" col  ">
             <div className="row my-1">
                 <div >
                     <div className="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" className="btn btn-primary" onClick={decrementar}>-</button>
-                        <button type="button" className="btn btn-primary">{counter}</button>
-                        <button type="button" className="btn btn-primary" onClick={incrementar}>+</button>
-                        
+                        <button type="button" className="btn btnS" onClick={decrementar}>-</button>
+                        <button type="button" className="btn btnS">{counter}</button>
+                        <button type="button" className="btn btnS" onClick={incrementar}>+</button>
+
                     </div>
                 </div>
             </div>
             <div className="row ">
                 <div >
-                    <button type="button" className="btn btn-primary" onClick={onAdd}>Agregar al Carrito</button>
+                    {visible ? <Terminar /> : <button type="button" className="btn btnS" onClick={itemAdd}>Agregar al Carrito</button>}
                 </div>
             </div>
         </div>
-        
+
     )
 }
 

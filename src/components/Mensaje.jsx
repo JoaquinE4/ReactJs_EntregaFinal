@@ -1,7 +1,6 @@
 import acrobata from "../assets/acrobata.png"
 const Mensaje = ({tamaño}) => {
 
-
     return(
         <div className="container-fluid">
             <div className="row">
@@ -13,10 +12,8 @@ const Mensaje = ({tamaño}) => {
                 <div className="right col-md-6  ">
                     <img src={acrobata} alt="" width={tamaño}/>
                 </div>
-
             </div>
         </div>
     )
 }
-
 export default Mensaje;
